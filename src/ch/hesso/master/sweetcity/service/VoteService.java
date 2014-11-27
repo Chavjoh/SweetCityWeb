@@ -25,7 +25,8 @@ import com.google.api.server.spi.response.UnauthorizedException;
 		scopes = {Project.EMAIL_SCOPE},
 		clientIds = {
 				Project.WEB_CLIENT_ID,  
-				Project.ANDROID_CLIENT_ID, 
+				Project.ANDROID_CLIENT_ID_DEV1,
+				Project.ANDROID_CLIENT_ID_DEV2,
 				com.google.api.server.spi.Constant.API_EXPLORER_CLIENT_ID
 		},
 		audiences = {Project.ANDROID_AUDIENCE}
