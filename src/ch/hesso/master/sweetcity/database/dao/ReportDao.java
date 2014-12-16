@@ -7,6 +7,7 @@ import java.util.List;
 import ch.hesso.master.sweetcity.database.entity.Report;
 import ch.hesso.master.sweetcity.database.entity.Account;
 
+import com.googlecode.objectify.Key;
 import com.googlecode.objectify.ObjectifyService;
 
 public class ReportDao {
@@ -33,11 +34,23 @@ public class ReportDao {
 	}
 
 	public static List<Report> listReportUser(Account user) {
-		return ofy().load().type(Report.class).filter("user", user.getEmail()).list();
+		return listReportUser(user.getEmail());
+	}
+	
+	public static List<Report> listReportUser(String userEmail) {
+		return ofy().load().type(Report.class).filter("user", Key.create(Account.class, userEmail)).list();
 	}
 
 	public static void removeReport(Report report) {
 		ofy().delete().entity(report).now();
+	}
+	
+	public static int countReport(String userEmail) {
+		return ofy().load().type(Report.class).filter("user", Key.create(Account.class, userEmail)).count();
+	}
+	
+	public static int countReport(Account user) {
+		return countReport(user.getEmail());
 	}
 	
 }

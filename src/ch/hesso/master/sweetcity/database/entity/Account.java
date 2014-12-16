@@ -105,8 +105,15 @@ public class Account implements Serializable {
 	public void setListReward(List<Reward> listReward) {
 		this.listReward.clear();
 		for (Reward reward:listReward) {
-			this.listReward.add(Ref.create(reward));
+			addReward(reward);
 		}
+	}
+	
+	/**
+	 * @param reward the reward to add
+	 */
+	public void addReward(Reward reward) {
+		this.listReward.add(Ref.create(reward));
 	}
 	
 	/**

@@ -28,8 +28,12 @@ import com.google.api.server.spi.response.UnauthorizedException;
 public class AccountService {
 	
 	@ApiMethod(path = "get", httpMethod = HttpMethod.GET)
-	public Account getCurrentAccount(User user) throws UnauthorizedException {
-		return ServiceUtils.getCurrentAccount(user);
+	public Account getCurrentAccount(User user) {
+		try {
+			return ServiceUtils.getCurrentAccount(user);
+		} catch (UnauthorizedException e) {
+			return null;
+		}
 	}
 	
 	@ApiMethod(path = "register/{login}", httpMethod = HttpMethod.GET)

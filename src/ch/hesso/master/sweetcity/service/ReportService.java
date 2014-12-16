@@ -14,8 +14,11 @@ import ch.hesso.master.sweetcity.database.entity.Account;
 import ch.hesso.master.sweetcity.database.entity.Report;
 import ch.hesso.master.sweetcity.database.entity.Tag;
 import ch.hesso.master.sweetcity.database.entity.Vote;
+import ch.hesso.master.sweetcity.database.manager.RewardManager;
+import ch.hesso.master.sweetcity.database.manager.EntityType;
 import ch.hesso.master.sweetcity.utils.DateUtils;
 import ch.hesso.master.sweetcity.utils.ServiceUtils;
+
 import com.google.api.server.spi.auth.common.User;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
@@ -93,6 +96,7 @@ public class ReportService {
 		report.setUser(currentAccount);
 		report.resetDefault();
 		ReportDao.addReport(report);
+		RewardManager.refreshType(EntityType.REPORT, currentAccount);
 	}
 	
 	@ApiMethod(path = "removeReport/{reportId}", httpMethod = HttpMethod.GET)
@@ -114,6 +118,7 @@ public class ReportService {
 		Account currentAccount = ServiceUtils.getCurrentAccount(user);
 		Report report = new Report(currentAccount, image, latitude, longitude);
 		ReportDao.addReport(report);
+		RewardManager.refreshType(EntityType.REPORT, currentAccount);
 	}
 	
 	@ApiMethod(path = "addTag/{reportId}/{tagId}", httpMethod = HttpMethod.GET)

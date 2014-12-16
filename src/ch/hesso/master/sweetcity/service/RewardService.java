@@ -4,10 +4,11 @@ import java.util.Collections;
 import java.util.List;
 
 import ch.hesso.master.sweetcity.Project;
-import ch.hesso.master.sweetcity.database.comparator.RewardNameComparator;
+import ch.hesso.master.sweetcity.database.comparator.RewardIdComparator;
 import ch.hesso.master.sweetcity.database.dao.RewardDao;
 import ch.hesso.master.sweetcity.database.entity.Reward;
 import ch.hesso.master.sweetcity.utils.ServiceUtils;
+
 import com.google.api.server.spi.auth.common.User;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
@@ -35,7 +36,7 @@ public class RewardService {
 	public List<Reward> getRewardList(User user) throws UnauthorizedException {
 		ServiceUtils.getCurrentAccount(user);
 		List<Reward> listReward = RewardDao.listReward();
-		Collections.sort(listReward, RewardNameComparator.INSTANCE);
+		Collections.sort(listReward, RewardIdComparator.INSTANCE);
 		return listReward;
 	}
 	
