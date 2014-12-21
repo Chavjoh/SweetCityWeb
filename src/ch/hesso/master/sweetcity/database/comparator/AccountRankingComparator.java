@@ -13,6 +13,6 @@ public class AccountRankingComparator implements Comparator<Account> {
 		Integer points1 = account1.getPoints();
 		Integer points2 = account2.getPoints();
 
-		return points1.compareTo(points2);
+		return (-1) * points1.compareTo(points2);
 	}
 }
