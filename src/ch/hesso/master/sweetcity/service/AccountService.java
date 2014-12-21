@@ -1,6 +1,10 @@
 package ch.hesso.master.sweetcity.service;
 
+import java.util.Collections;
+import java.util.List;
+
 import ch.hesso.master.sweetcity.Project;
+import ch.hesso.master.sweetcity.database.comparator.AccountRankingComparator;
 import ch.hesso.master.sweetcity.database.dao.AccountDao;
 import ch.hesso.master.sweetcity.database.entity.Account;
 import ch.hesso.master.sweetcity.utils.ServiceUtils;
@@ -52,5 +56,11 @@ public class AccountService {
 		AccountDao.addAccount(currentAccount);
 	}
 
-
+	@ApiMethod(path = "ranking", httpMethod = HttpMethod.GET)
+	public List<Account> ranking(User user) throws UnauthorizedException {
+		ServiceUtils.getCurrentAccount(user);
+		List<Account> listAccount = AccountDao.listAccount();
+		Collections.sort(listAccount, AccountRankingComparator.INSTANCE);
+		return listAccount;
+	}
 }

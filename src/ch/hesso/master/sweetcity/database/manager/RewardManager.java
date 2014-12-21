@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.google.gwt.dev.util.collect.HashMap;
 
-import ch.hesso.master.sweetcity.Project;
 import ch.hesso.master.sweetcity.database.dao.AccountDao;
 import ch.hesso.master.sweetcity.database.dao.ReportDao;
 import ch.hesso.master.sweetcity.database.dao.RewardDao;
@@ -44,7 +43,7 @@ public class RewardManager {
 
 		switch (type) {
 			case ACCOUNT:
-				
+				// TODO: Add reward
 				break;
 				
 			case REPORT:
@@ -62,15 +61,15 @@ public class RewardManager {
 				break;
 				
 			case REWARD:
-				
+				// TODO: Add reward
 				break;
 				
 			case TAG:
-				
+				// TODO: Add reward
 				break;
 				
 			case VOTE:
-				
+				// TODO: Add reward
 				break;
 		}
 		
