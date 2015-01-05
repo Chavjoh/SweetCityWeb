@@ -34,8 +34,8 @@ import com.google.api.server.spi.response.NotFoundException;
 		scopes = {Project.EMAIL_SCOPE},
 		clientIds = {
 				Project.WEB_CLIENT_ID,  
-				Project.ANDROID_CLIENT_ID_DEV1,
-				Project.ANDROID_CLIENT_ID_DEV2,
+				Project.ANDROID_CLIENT_ID_DEV,
+				Project.ANDROID_CLIENT_ID_PROD,
 				com.google.api.server.spi.Constant.API_EXPLORER_CLIENT_ID
 		},
 		audiences = {Project.ANDROID_AUDIENCE}

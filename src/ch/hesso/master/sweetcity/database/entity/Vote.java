@@ -31,14 +31,13 @@ public class Vote implements Serializable {
 	}
 	
 	@Override
-	public boolean equals(Object object)
-		{
+	public boolean equals(Object object) {
 		if (object == this) { return true; }
 		if (object == null || object.getClass() != this.getClass()) { return false; }
 
 		Vote vote = (Vote)object;
 		return id.equals(vote.getId());
-		}
+	}
 	
 	/**
 	 * @return the id

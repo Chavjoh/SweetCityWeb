@@ -29,14 +29,13 @@ public class Tag implements Serializable {
 	}
 	
 	@Override
-	public boolean equals(Object object)
-		{
+	public boolean equals(Object object) {
 		if (object == this) { return true; }
 		if (object == null || object.getClass() != this.getClass()) { return false; }
 
 		Tag tag = (Tag)object;
 		return id.equals(tag.getId());
-		}
+	}
 	
 	/**
 	 * @return the id

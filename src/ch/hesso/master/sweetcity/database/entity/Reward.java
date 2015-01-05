@@ -29,14 +29,13 @@ public class Reward implements Serializable {
 	}
 	
 	@Override
-	public boolean equals(Object object)
-		{
+	public boolean equals(Object object) {
 		if (object == this) { return true; }
 		if (object == null || object.getClass() != this.getClass()) { return false; }
 
 		Reward reward = (Reward)object;
 		return id.equals(reward.getId());
-		}
+	}
 	
 	/**
 	 * @return the id

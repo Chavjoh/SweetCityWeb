@@ -39,14 +39,13 @@ public class Account implements Serializable {
 	}
 	
 	@Override
-	public boolean equals(Object object)
-		{
+	public boolean equals(Object object) {
 		if (object == this) { return true; }
 		if (object == null || object.getClass() != this.getClass()) { return false; }
 
 		Account user = (Account)object;
 		return email.equals(user.getEmail());
-		}
+	}
 	
 	/**
 	 * @return the pseudo
